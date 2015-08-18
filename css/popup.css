@@ -1,0 +1,20 @@
+.max-width {
+  width: 250px;
+}
+
+.header-popup {
+  padding: 5px;
+  font-size: 20px;
+  border-bottom: #CCC 1px dashed;
+}
+
+.content-popup {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.alert {
+  font-size: 25;
+  font-weight: 300;
+  color: #000;
+}

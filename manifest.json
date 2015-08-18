@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "Remember to Read",
+  "description": "Keep track of the articles you want to read.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "images/icon48.png",
+    "default_popup": "popup.html"
+  },
+
+  "icons": { 
+    "48": "images/icon48.png",
+    "128": "images/icon128.png" 
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}

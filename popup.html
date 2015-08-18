@@ -1,0 +1,31 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Remember to Read</title>
+    <script src="javascript/popup.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="max-width">
+      <div class="header header-popup" class="margin">
+        REMEMBER TO READ <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+      </div>
+      <div class="content content-popup">
+        <p> Hey, you have X articles </p>
+        <div id="app">
+          <a href="app.html" target="_blank" class="btn btn-default">Save Page</a>
+          <a href="app.html" target="_blank" class="btn btn-default">Go Read Now</a>
+          <img id="image-result" hidden>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
