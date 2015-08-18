@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="readingListApp" ng-csp="">
+
+  <head>
+
+    <title>Remember to Read</title>
+    
+    <script src="javascript/angular.min.js"></script>
+    <script src="javascript/script.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+  </head>
+
+  <body>
+
+    <div class="container"> 
+      <div class="row">
+
+        <div class="col-md-4  vertical-line">
+          <div id="header">
+            REMEMBER TO READ <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
+            <div id="memo">
+              <p>{ SAVE ARTICLES, READ LATER }</p>
+            </div>
+          </div>
+          <ul>
+            <li><a href="#" target="" class="btn btn-default btn-block">NEED TO READ</a></li>  
+            <li><a href="#" target="" class="btn btn-default btn-block">READ ALREADY</a></li>          
+          </ul>
+        </div>
+
+        <div class="col-md-8">
+          <div class="list-content">
+            <div class="list-title">
+              List
+            </div>
+            <div ng-controller="ReadingListController as toReadList">
+              <span>{{toReadList.remaining()}} of {{toReadList.todos.length}} remaining</span>
+              <ul class="unstyled">
+                <li ng-repeat="todo in toReadList.todos">
+                  <input type="checkbox" ng-model="todo.done">
+                  <span class="done-{{todo.done}}">{{todo.text}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
