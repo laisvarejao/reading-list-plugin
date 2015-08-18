@@ -12,7 +12,7 @@ function getCurrentTabUrl(callback) {
   });
 }
 
-function getPageContent(url, errorCallback) {
+function getPageContent(url, callback, errorCallback) {
   var request = new XMLHttpRequest();
   request.open("GET", url, true);
   request.send(null); //why is this needed?
@@ -23,8 +23,13 @@ function getPageContent(url, errorCallback) {
       errorCallback('No response from the page!');
       return;
     }
-    alert(response);
-    //Parse obj: image and title ! on the callback, saved the obj in local storage
+
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(response, "text/html");
+
+    //TODO
+    var object = null;
+    callback(object);
   };
 
   request.onerror = function() {
@@ -32,15 +37,23 @@ function getPageContent(url, errorCallback) {
   };
 }
 
+function saveArticle(object) {
+
+}
+
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  getCurrentTabUrl(function(url) {
-    renderStatus('Saved the page!');
-    getPageContent(url, function(message){
+  getCurrentTabUrl(
+    getPageContent(url, function() {
+        saveArticle(object);
+        renderStatus('Saved the Article.');
+      }, function(message) { //why the encapsulation? 
       renderStatus(message);
     });
   });
 });
+
+// What's the limit of callbacks? when to know where to stop?
