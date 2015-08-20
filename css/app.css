@@ -1,0 +1,55 @@
+body {
+  font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+  text-align: center;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  margin:0 0 10px 0;   
+}
+
+#header {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  font-size: 50px;
+  color: #555;
+}
+
+#memo {
+  font-size: 20px;
+}
+
+.list-title {
+  color: orange;
+  font-size: 30px;
+  font-weight: 200;
+  padding-bottom: 10px;
+}
+
+.list-content {
+  padding-top: 120px;
+  padding-left: 50px;
+  text-align: left;
+}
+
+.glyphicon {
+  color: orange;
+  font-size: 90%;
+}
+
+.vertical-line {
+  border-right: #555 1px dashed;
+  height: 600px;
+}
+
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
