@@ -8,51 +8,48 @@ function getCurrentTabUrl(callback) {
     var tab = tabs[0];
     var url = tab.url;
     console.assert(typeof url == 'string', 'tab.url should be a string');
-    callback(url);
+    
+    chrome.storage.local.get({urls: []}, function(result) {
+      var urls = result.urls;
+      urls.push({url: url, done: false});
+      chrome.storage.local.set({urls: urls});
+      callback(url);
+    });
   });
 }
 
-function getPageContent(url, callback, errorCallback) {
-  var request = new XMLHttpRequest();
-  request.open("GET", url, true);
-  request.send(null); //why is this needed?
+// function getPageContent(url, callback, errorCallback) {
+//   var request = new XMLHttpRequest();
+//   request.open("GET", url, true);
+//   request.send(null); //why is this needed?
 
-  request.onload = function() {
-    var response = request.responseText;
-    if (!response) {
-      errorCallback('No response from the page!');
-      return;
-    }
+//   request.onload = function() {
+//     var response = request.responseText;
+//     if (!response) {
+//       errorCallback('No response from the page!');
+//       return;
+//     }
 
-    var parser = new DOMParser();
-    var doc = parser.parseFromString(response, "text/html");
+//     var parser = new DOMParser();
+//     var doc = parser.parseFromString(response, "text/html");
 
-    //TODO
-    var object = null;
-    callback(object);
-  };
+//     //TODO
+//     var object = null;
+//     callback(object);
+//   };
 
-  request.onerror = function() {
-    errorCallback('Network error.');
-  };
-}
-
-function saveArticle(object) {
-
-}
+//   request.onerror = function() {
+//     errorCallback('Network error.');
+//   };
+// }
 
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  getCurrentTabUrl(
-    getPageContent(url, function() {
-        saveArticle(object);
-        renderStatus('Saved the Article.');
-      }, function(message) { //why the encapsulation? 
-      renderStatus(message);
-    });
+  getCurrentTabUrl(function(url) {
+    renderStatus('Saving... ' + url);
   });
 });
 
