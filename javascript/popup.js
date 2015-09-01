@@ -56,19 +56,16 @@ function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
 
-function savedAlready(urls) {
-  chrome.storage.local.get({urls: []}, function(result) {
-    var urls = urls.filter(function (el) {
-      return el.url === url;
-    });
+function savedAlready(urls, url) {
+  var filteredUrls = urls.filter(function (el) {
+    return el.url === url;
   });
-  return urls.length > 0;
+  return filteredUrls.length > 0;
 }
 
 function savePage(url, title, image) {
   chrome.storage.local.get({urls: []}, function(result) {
     var urls = result.urls;
-    var saved = savedAlready(urls, url);
     if (!savedAlready(urls, url)) {
       urls.push({url: url, title: title, image: image, done: false});
       chrome.storage.local.set({urls: urls});
