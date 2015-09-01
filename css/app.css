@@ -1,4 +1,4 @@
-body {
+html, body {
   background-color: #F4F4F6 !important;
   font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
   text-align: center;
@@ -42,6 +42,11 @@ li {
   font-size: 20px;
 }
 
+.vertical-line {
+  height: 700px;
+  border-right: #555 1px dashed;
+}
+
 #list-title {
   color: #FF5050;
   font-size: 30px;
@@ -58,11 +63,6 @@ li {
 .glyphicon {
   color: #FF5050;
   font-size: 90%;
-}
-
-.vertical-line {
-  border-right: #555 1px dashed;
-  height: 600px;
 }
 
 .thumbnail {
