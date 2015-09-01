@@ -18,7 +18,6 @@ function getCurrentTabUrl(callback) {
     var tab = tabs[0];
     var url = tab.url;
     console.assert(typeof url == 'string', 'tab.url should be a string');
-    // console.assert(/^https?:\/\//i.test(url), 'not a valid url');
     callback(url);
   });
 }
@@ -58,21 +57,20 @@ function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
 }
 
-function savedAlready(urls, url) {
-  urls.forEach(function(elem) {
-    if (elem.url == url) {
-      return true;
-    }
-  });  
-  return false;
+function savedAlready(urls) {
+  chrome.storage.local.get({urls: []}, function(result) {
+    var urls = urls.filter(function (el) {
+      return el.url === url;
+    });
+  });
+  return urls.length > 0;
 }
 
 function savePage(url, title, image) {
   chrome.storage.local.get({urls: []}, function(result) {
     var urls = result.urls;
     var saved = savedAlready(urls, url);
-    console.log(saved);
-    if (!saved) {
+    if (!savedAlready(urls, url)) {
       urls.push({url: url, title: title, image: image, done: false});
       chrome.storage.local.set({urls: urls});
       renderStatus('Saving page ' + url);
