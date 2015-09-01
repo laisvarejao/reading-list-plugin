@@ -1,4 +1,3 @@
-
 window.onload = function() {
   document.getElementById("save-btn").addEventListener("click", saveCurrentPage);
 }
