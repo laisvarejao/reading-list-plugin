@@ -5,12 +5,11 @@
 
     <title>Remember to Read</title>
     
-    <script src="javascript/angular.min.js"></script>
     <script src="javascript/app.js"></script>
 
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  
+
   </head>
 
   <body>
@@ -18,7 +17,7 @@
     <div class="container"> 
       <div class="row">
 
-        <div class="col-md-4  vertical-line">
+        <div class="col-md-4 vertical-line">
           <div id="header">
             REMEMBER TO READ <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
             <div id="memo">
@@ -26,26 +25,19 @@
             </div>
           </div>
           <ul>
-            <li><a href="#" target="" class="btn btn-default btn-block">TO READ</a></li>  
-            <li><a href="#" target="" class="btn btn-default btn-block">READ ALREADY</a></li>          
+            <li><button class="btn btn-default btn-block" id="to-read-btn">TO READ</button></li>  
+            <li><button class="btn btn-default btn-block" id="read-btn">READ ALREADY</button></li>          
           </ul>
         </div>
 
+
         <div class="col-md-8">
-          <div class="list-content">
-            <div class="list-title">
-              List
+          <div class="row list-content">
+              <div id="list-title">
+              </div>
+              <div id="reading-list">
+              </div>
             </div>
-            <div ng-controller="ReadingListController as toReadList">
-              <span>Total: {{toReadList.urls.length}} remaining</span>
-              <ul class="unstyled">
-                <li ng-repeat="urlObj in toReadList.urls">
-                  <!-- <input type="checkbox" ng-model="url.done"> -->
-                  <span class="done-false">{{urlObj.url}}</span>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
 
       </div>
