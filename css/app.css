@@ -44,6 +44,7 @@ li {
 
 .vertical-line {
   height: relative;
+  min-height: 600px !important;
   border-left: #555 1px dashed;
 }
 
