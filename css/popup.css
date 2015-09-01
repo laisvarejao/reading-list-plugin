@@ -1,3 +1,16 @@
+*:focus {
+  outline: 0 !important;
+}
+
+body {
+  background-color: #fff !important;
+}
+
+a:hover {
+ font-weight: normal !important;
+ color: #555 !important;
+}
+
 .max-width {
   width: 250px;
 }
@@ -10,15 +23,11 @@
 
 .content-popup {
   padding: 10px;
-  font-size: 18px;
+  font-size: 100%;
 }
 
 .alert {
-  font-size: 25;
+  font-size: 90%;
   font-weight: 300;
   color: #000;
-}
-
-#unread {
-  font-size: 15px;
 }
