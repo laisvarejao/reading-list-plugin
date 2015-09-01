@@ -43,8 +43,8 @@ li {
 }
 
 .vertical-line {
-  height: 700px;
-  border-right: #555 1px dashed;
+  height: relative;
+  border-left: #555 1px dashed;
 }
 
 #list-title {
