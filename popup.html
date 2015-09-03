@@ -5,27 +5,35 @@
  value "popup.html".
  -->
 <html>
+
   <head>
+  
     <title>Remember to Read</title>
+  
     <script src="javascript/popup.js"></script>
+  
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/popup.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
   </head>
+
   <body>
+
     <div class="max-width">
-      <div class="header header-popup" class="margin">
+      <div id="header-popup" class="header" class="margin">
         REMEMBER TO READ <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
       </div>
-      <div class="content content-popup">
+      <div id="content-popup" class="content">
         <div id="status"></div>
         <div id="app">
           <button class="btn btn-default" id="save-btn">Save Page</button>
           <a href="app.html" target="_blank" class="btn btn-default">Go Read Now</a>
-          <img id="image-result" hidden>
         </div>
       </div>
     </div>
+
   </body>
+  
 </html>
 

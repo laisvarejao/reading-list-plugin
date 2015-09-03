@@ -15,20 +15,14 @@ a:hover {
   width: 250px;
 }
 
-.header-popup {
+#header-popup {
   padding: 5px;
   font-size: 20px;
   font-weight: 100;
   border-bottom: #CCC 1px dashed;
 }
 
-.content-popup {
+#content-popup {
   padding: 10px;
   font-size: 100%;
-}
-
-.alert {
-  font-size: 90%;
-  font-weight: 300;
-  color: #000;
 }
