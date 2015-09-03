@@ -70,6 +70,7 @@ function savePage(url, title, image) {
       urls.push({url: url, title: title, image: image, done: false});
       chrome.storage.local.set({urls: urls});
       renderStatus('Saving page ' + url);
+      chrome.extension.sendRequest({});
     } else {
       renderStatus('You already saved this');
     }

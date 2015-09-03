@@ -54,6 +54,7 @@ function loadReadingList(done) {
 
         var link = document.createElement('a');
         link.href = el.url;
+        link.target = "_blank";
         link.appendChild(title);
         link.appendChild(image);
         
@@ -91,6 +92,7 @@ function updateDone(url, done, callback) {
       if (el.url == url) {
         el.done = done;
         chrome.storage.local.set({urls: urls});
+        chrome.extension.sendRequest({});
         callback();
       }
     });
@@ -103,6 +105,7 @@ function removeUrl(url, callback) {
       return el.url !== url;
     });
     chrome.storage.local.set({urls: urls});
+    chrome.extension.sendRequest({});
     callback();
   });
 }
