@@ -42,6 +42,7 @@ function getPageContent(url, callback, errorCallback) {
     try {
       var imageNode = doc.getElementsByTagName("img")[0];
       var image = imageNode.src;
+      console.log(image);
     } catch(err){}
 
     callback(url, title, image);
