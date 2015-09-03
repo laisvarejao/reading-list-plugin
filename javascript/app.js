@@ -8,6 +8,11 @@ window.onload = function() {
   });
 };
 
+function updateList(done) {
+  chrome.extension.sendRequest({});
+  loadList(done);
+}
+
 function loadList(done) {
   loadListTitle(done);
   loadReadingList(done);
@@ -40,8 +45,8 @@ function loadReadingList(done) {
         deleteLink.className = 'close';
         deleteLink.innerHTML = 'x';
         deleteLink.addEventListener('click', function() {
-          removeUrl(el.url, function() {
-            loadList(done);
+          removeUrl(el.url, done, function() {
+            updateList(done);
           });
         });
 
@@ -66,7 +71,7 @@ function loadReadingList(done) {
         doneCheckbox.checked = done;
         doneCheckbox.addEventListener('click', function() {
           updateDone(el.url, !done, function() {
-            loadList(done);
+            updateList(done);
           });
         });
         
@@ -92,7 +97,6 @@ function updateDone(url, done, callback) {
       if (el.url == url) {
         el.done = done;
         chrome.storage.local.set({urls: urls});
-        chrome.extension.sendRequest({});
         callback();
       }
     });
@@ -105,7 +109,6 @@ function removeUrl(url, callback) {
       return el.url !== url;
     });
     chrome.storage.local.set({urls: urls});
-    chrome.extension.sendRequest({});
     callback();
   });
 }

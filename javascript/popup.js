@@ -69,8 +69,8 @@ function savePage(url, title, image) {
     if (!savedAlready(urls, url)) {
       urls.push({url: url, title: title, image: image, done: false});
       chrome.storage.local.set({urls: urls});
-      renderStatus('Saving page ' + url);
       chrome.extension.sendRequest({});
+      renderStatus('Saving page ' + url);
     } else {
       renderStatus('You already saved this');
     }
