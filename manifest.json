@@ -23,6 +23,6 @@
   ],
 
   "background": {
-    "scripts": ["javascript/badge.js"]
+    "scripts": ["javascript/background.js"]
   }
 }
