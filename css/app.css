@@ -30,6 +30,10 @@ li {
   margin:0 0 10px 0;
 }
 
+label {
+  font-weight: 200 !important;
+}
+
 #header {
   padding-top: 100px;
   padding-bottom: 50px;
@@ -38,13 +42,13 @@ li {
   color: #555;
 }
 
-#memo {
+#sub-header {
   font-size: 20px;
 }
 
 .vertical-line {
   height: relative;
-  min-height: 600px !important;
+  min-height: 680px !important;
   border-left: #555 1px dashed;
 }
 
