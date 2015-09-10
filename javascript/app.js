@@ -1,9 +1,9 @@
 window.onload = function() {
   loadList(false);
-  document.getElementById('read-btn').addEventListener('click', function(){
+  document.querySelector('#read-btn').addEventListener('click', function(){
     loadList(true);
   });
-  document.getElementById('to-read-btn').addEventListener('click', function(){
+  document.querySelector('#to-read-btn').addEventListener('click', function(){
     loadList(false);
   });
 };
@@ -14,7 +14,7 @@ function loadList(done) {
 }
 
 function loadListTitle(done) {
-  var listTitle = document.getElementById('list-title');
+  var listTitle = document.querySelector('#list-title');
   listTitle.innerHTML = '';
 
   var title;
@@ -27,7 +27,7 @@ function loadListTitle(done) {
 }
 
 function loadReadingList(done) {
-  var readingList = document.getElementById('reading-list');
+  var readingList = document.querySelector('#reading-list');
   readingList.innerHTML = '';
 
   chrome.storage.local.get({urls: []}, function(result) {
@@ -71,7 +71,7 @@ function loadReadingList(done) {
         });
         
         var doneLabel = document.createElement('label');
-        doneLabel.innerHTML = 'Just read it ';
+        doneLabel.innerHTML = 'Finished reading it ';
 
         doneLabel.appendChild(doneCheckbox);
         doneDiv.appendChild(doneLabel);

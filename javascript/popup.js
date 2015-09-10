@@ -1,6 +1,6 @@
 window.onload = function() {
-  document.getElementById("save-btn").addEventListener("click", saveCurrentPage);
-}
+  document.querySelector("#save-btn").addEventListener("click", saveCurrentPage);
+};
 
 function saveCurrentPage() {
   getCurrentTabUrl(function(url) {
@@ -21,6 +21,7 @@ function getCurrentTabUrl(callback) {
   });
 }
 
+// Callback requires 3 parameters: a url, a title and an image
 function getPageContent(url, callback, errorCallback) {
   var request = new XMLHttpRequest();
   request.open("GET", url, true);
@@ -36,12 +37,13 @@ function getPageContent(url, callback, errorCallback) {
     var parser = new DOMParser();
     var doc = parser.parseFromString(response, "text/html");
 
-    var titleNode = doc.getElementsByTagName("title")[0];
+    var titleNode = doc.querySelector("title");
     var title = titleNode.childNodes[0].textContent;
 
+    var image;
     try {
-      var imageNode = doc.getElementsByTagName("img")[0];
-      var image = imageNode.src;
+      var imageNode = doc.querySelector("img");
+      image = imageNode.src;
     } catch(err){}
 
     callback(url, title, image);
@@ -53,7 +55,7 @@ function getPageContent(url, callback, errorCallback) {
 }
 
 function renderStatus(statusText) {
-  document.getElementById('status').textContent = statusText;
+  document.querySelector('#status').textContent = statusText;
 }
 
 function savedAlready(urls, url) {
