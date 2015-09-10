@@ -1,29 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--
  This page is shown when the extension button is clicked, because the
  "browser_action" field in manifest.json contains the "default_popup" key with
  value "popup.html".
  -->
-<html>
+<html lang="en">
 
   <head>
-  
+    
+    <meta charset="utf-8">
+    
     <title>Remember to Read</title>
   
+    <!-- Custom JavaScript -->
     <script src="javascript/popup.js"></script>
   
+    <!-- Custom General CSS -->
     <link rel="stylesheet" href="css/app.css">
+
+    <!-- Custom Popup CSS -->
     <link rel="stylesheet" href="css/popup.css">
+
+    <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   
   </head>
 
   <body>
 
-    <div class="max-width">
-      <div id="header-popup" class="header" class="margin">
+    <div id="popup">
+
+      <!-- Fixed Header -->
+      <div id="header-popup" class="header">
         REMEMBER TO READ <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
       </div>
+
+       <!-- Optional Actions -->
       <div id="content-popup" class="content">
         <div id="status"></div>
         <div id="app">

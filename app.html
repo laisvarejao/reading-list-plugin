@@ -1,13 +1,23 @@
-<!doctype html>
-<html ng-app="readingListApp" ng-csp="">
+<!DOCTYPE html>
+<html lang="en" ng-app="readingListApp" ng-csp="">
 
   <head>
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="remember-to-read" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A chrome plugin to manage reading lists.">
+    <meta name="author" content="lais varejao">
+
     <title>Remember to Read</title>
     
+    <!-- Custom JavaScript -->
     <script src="javascript/app.js"></script>
 
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/app.css">
+
+    <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
   </head>
@@ -17,29 +27,32 @@
     <div class="container"> 
       <div class="row">
 
+        <!-- Navbar section -->
         <div class="col-md-4">
+
+          <!-- Fixed Header Section -->
           <div id="header">
-            REMEMBER TO READ <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span>
-            <div id="memo">
+            <p>REMEMBER TO READ <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></p>
+            <div id="sub-header">
               <p>{ SAVE ARTICLES, READ LATER }</p>
             </div>
           </div>
-          <ul>
-            <li><button class="btn btn-default btn-block" id="to-read-btn">TO READ</button></li>  
-            <li><button class="btn btn-default btn-block" id="read-btn">READ ALREADY</button></li>          
-          </ul>
+
+          <!-- Lists to Toogle -->
+          <div id="lists">
+            <ul>
+              <li><button id="to-read-btn" class="btn btn-default btn-block">TO READ</button></li>  
+              <li><button id="read-btn" class="btn btn-default btn-block">READ ALREADY</button></li>          
+            </ul>
+          </div>
+
         </div>
 
-
-        <div class="col-md-8 vertical-line">
-          <div id="list-content" class="row">
-              <div id="list-title">
-              </div>
-              <div id="reading-list">
-              </div>
-            </div>
+        <!-- Reading lists' Content -->
+        <div id="list-content" class="col-md-8 vertical-line">
+          <div id="list-title"></div>
+          <div id="reading-list"></div>
         </div>
-
       </div>
     </div>
 
