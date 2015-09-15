@@ -50,7 +50,9 @@ function loadReadingList(done) {
         title.innerHTML = el.title;
 
         var image = document.createElement('img');
-        image.src = el.image;
+        if (typeof el.image != 'undefined') {
+          image.src = el.image;
+        }
 
         var link = document.createElement('a');
         link.href = el.url;
